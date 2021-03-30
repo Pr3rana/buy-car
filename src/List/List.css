@@ -1,0 +1,18 @@
+
+.listContainer{
+    text-align: center;
+}
+.list{
+    display: flex;
+    border: 1px solid #ededed;
+    margin: 12px;
+}
+.listContent{
+    display: inline-block;
+}
+
+img{
+    padding: 18px;
+    height: 100px;
+    width: 100px;
+}
