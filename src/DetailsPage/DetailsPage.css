@@ -1,0 +1,16 @@
+.banner-img{
+    height: 50vh;
+    background-color: #4a4a4a;
+}
+.content-wrapper{
+    display: flex;
+    height: 800px;
+    justify-content: space-evenly;
+}
+
+.content-wrapper div{
+    width: 400px;
+    margin: 12px;
+    padding: 12px;
+    border: 1px solid #ededed;
+}
