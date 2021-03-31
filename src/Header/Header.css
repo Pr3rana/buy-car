@@ -1,15 +1,28 @@
 header{
     height: 80px;
-}
-ul {
-    list-style-type: none;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background-color: #ededed;
+}
+
+.fill-remaining-space {
+  flex: auto;
+}
+
+.logo{
+  display: inline-block;
+  height: 40px;
+  width: 200px;
+  padding: 24px;
+}
+
+ul {
+    list-style-type: none;
+    display: contents;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ededed;
     height: 100%;
   }
   
@@ -30,6 +43,7 @@ ul {
   
   li a:hover:not(.active) {
     background-color: #ea7f28;
+    color: #ededed;
   }
   
   /* .active {
