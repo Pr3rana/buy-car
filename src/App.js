@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './Header/Header'
@@ -10,22 +9,20 @@ import Home from './Home/Home';
 function App() {
   // const [availableFilters, setAvailableFilters] = useState(["color", "brand"])
   return (
-      <div className="App">
+      <ErrorBoundary>
         <Router>
-          <ErrorBoundary>
             <Header/>
             <Switch>
               <Route exact path = "/">
                 <Home/>
               </Route>
-              <Route exact path = "/details/">
+              <Route exact path = "/details/:stockNumber">
                 <DetailsPage/>
               </Route>
             </Switch>
-            <Footer/>
-          </ErrorBoundary>
+            <Footer />
       </Router>
-    </div>
+    </ErrorBoundary>
   );
 }
 

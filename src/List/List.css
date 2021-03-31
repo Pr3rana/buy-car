@@ -1,7 +1,7 @@
 
-.listContainer{
+/* .listContainer{
     text-align: center;
-}
+} */
 .list{
     display: flex;
     border: 1px solid #ededed;
@@ -11,7 +11,7 @@
     display: inline-block;
 }
 
-img{
+.product-icon{
     padding: 18px;
     height: 100px;
     width: 100px;
