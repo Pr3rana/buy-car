@@ -1,11 +1,31 @@
 import './DropdownFilter.css';
-import { useState, useContext, useEffect} from 'react';
+import React, { useState, useContext, useEffect} from 'react';
 import { ListPageContext } from "../helpers/storeContext";
-// import useFetch from '../helpers/useFetch';
+import AutoSuggestPanel from './AutoSuggestPanel'
 
-export default function Dropdown() {
-    const [filtersType] = useState(["Color"]);
-    const [availableFilters, setAvailableFilters] = useState(null)
+function Dropdown({filters, select}){
+    const availableFilterTypes = Object.keys(filters);
+    const [defaultSelect, setDefaultSelect] = useState("");
+    const typeRefs = {};
+    availableFilterTypes.forEach((type,index)=>{
+      typeRefs[type] = React.createRef(null)
+    });
+    return (
+        <>
+        {availableFilterTypes.map((type,index)=>(
+            <div  className="custom-select" key={index}>
+                <p>{type}</p>
+                <div className="default-selected-item" onClick={()=>typeRefs[type].current.style.display!==""?typeRefs[type].current.style.display="":typeRefs[type].current.style.display="block"}>All {type}</div>
+                <AutoSuggestPanel ref={typeRefs[type]} list={filters[type]} onClick={select} type={type}/>
+            </div>)
+        )}
+        </>
+    )
+}
+export default function Filter() {
+    // const [filtersType] = useState(["Color", "Manufacturers"]);
+    const [availableFilters, setAvailableFilters] = useState({});
+    // const [availableManufacturersFilters, setAvailableManufacturersFilters] = useState([]);
     const [filterParams, setFilterParams] = useState({});
     const {setPagenumber, setSelectedFilter} = useContext(ListPageContext);
     const ROOT_URL = "https://auto1-mock-server.herokuapp.com/api";
@@ -13,8 +33,9 @@ export default function Dropdown() {
     // const {data: manufacturer} = useFetch(ROOT_URL+"/manufacturer");
 
     const handleSelect = (e)=>{
+        // console.log(e.target)
         const type = e.target.getAttribute("data-filter-type").toLowerCase();
-        const value = e.target.value.toLowerCase();
+        const value = e.target.innerText.toLowerCase();
         setFilterParams({...filterParams, [type]:value})
     }
 
@@ -30,28 +51,21 @@ export default function Dropdown() {
     
     useEffect(()=>{
         async function fetchFilterData(){
-            let [colors ]  =  await Promise.all([
+            let [ colors, manufacturers ]  =  await Promise.all([
                 fetch(`${ROOT_URL}/colors`).then(value => value.json()),
-                // fetch(`${ROOT_URL}/manufacturers`).then(value => value.json())
+                fetch(`${ROOT_URL}/manufacturers`).then(value => value.json())
             ])
-            setAvailableFilters({Color: colors.colors});
+            // setAvailableColorFilters(colors.colors);
+            const listOfManufacturers = manufacturers.manufacturers.map(key=>key.name)
+            // setAvailableManufacturersFilters(listOfManufacturers);
+            setAvailableFilters({Color:colors.colors, Manufacturer: listOfManufacturers})
         }
         fetchFilterData()
     },[])
     return ( 
         <div className="filter-wrapper">
-        {filtersType.map((type)=>(
-            <div className="filter" key={type}>
-                <h3>{type}</h3>
-                <select data-filter-type = {type} onChange={handleSelect}>
-                    {availableFilters && availableFilters[type].map((value)=>(
-                        <option value={value} key={value}>{value}</option>
-                    )
-                )}
-                </select>
-            </div>
-        ))}
-        <button onClick={handleFilter}>Filter</button>
+        <Dropdown filters={availableFilters} select={handleSelect}/>
+        <button className="filter-btn" onClick={handleFilter}>Filter</button>
         </div>
      );
 }
