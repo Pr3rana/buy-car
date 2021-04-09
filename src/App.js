@@ -9,20 +9,22 @@ import Home from './Home/Home';
 function App() {
   // const [availableFilters, setAvailableFilters] = useState(["color", "brand"])
   return (
-      <ErrorBoundary>
         <Router>
             <Header/>
-            <Switch>
-              <Route exact path = "/">
-                <Home/>
-              </Route>
-              <Route exact path = "/details/:stockNumber">
-                <DetailsPage/>
-              </Route>
-            </Switch>
+            <div className="main">
+              <ErrorBoundary>
+                <Switch>
+                  <Route exact path = "/">
+                    <Home/>
+                  </Route>
+                  <Route exact path = "/details/:stockNumber">
+                    <DetailsPage/>
+                  </Route>
+                </Switch>
+              </ErrorBoundary>
+            </div>
             <Footer />
       </Router>
-    </ErrorBoundary>
   );
 }
 

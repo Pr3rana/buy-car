@@ -2,6 +2,7 @@ import './DropdownFilter.css';
 import React, { useState, useContext, useEffect} from 'react';
 import { ListPageContext } from "../helpers/storeContext";
 import AutoSuggestPanel from './AutoSuggestPanel'
+import Button from '../Button/Button';
 
 function Dropdown({filters, select}){
     const availableFilterTypes = Object.keys(filters);
@@ -64,8 +65,8 @@ export default function Filter() {
     },[])
     return ( 
         <div className="filter-wrapper">
-        <Dropdown filters={availableFilters} select={handleSelect}/>
-        <button className="filter-btn" onClick={handleFilter}>Filter</button>
+            <Dropdown filters={availableFilters} select={handleSelect}/>
+            <Button value="Filter" click={handleFilter}/>
         </div>
      );
 }

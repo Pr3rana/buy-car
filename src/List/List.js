@@ -1,12 +1,17 @@
-import Pagination from '../Pagination/Pageination';
+import { useContext } from 'react';
 import {Link} from 'react-router-dom';
+import Pagination from '../Pagination/Pageination';
+import { ListPageContext } from "../helpers/storeContext";
 import './List.css';
 
 function List({cars}){
+    const { pagenumber } = useContext(ListPageContext);
     return ( 
         <div className="listContainer list-wrapper">
-            <h3>Available Cars</h3>
-            <p>Showing 10 out of 100 results</p>
+            <div>
+                <h3>Available Cars</h3>
+                <p>Showing {pagenumber*10} out of 100 results</p>
+            </div>
             {cars.map((car,index)=>(
                 <div className="list" key={index}>
                     <img alt="alt-text" className="product-icon" src={car.pictureUrl}/>

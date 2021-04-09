@@ -48,19 +48,3 @@
   .suggestionRow:hover {
     background-color: #ea7f28; 
   }
-
-.filter-btn{
-    font-size: 14px;
-    width: 128px;
-    height: 32px;
-    margin: 18px;
-    font-family: Roboto;
-    background-color: #ea7f28;
-    border-radius: 4px;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 18px;
-    transition: all 0.5s;
-    cursor: pointer;
-}

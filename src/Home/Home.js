@@ -6,9 +6,9 @@ import List from '../List/List';
 import './Home.css';
 
 export default function Home(){
-    const [productList, setProductList] = useState([]);
+    const [productList, setProductList] = useState(Array(10).fill({}));
     const [selectedFilter, setSelectedFilter] = useState('');
-    // const [isFetched, setIsFetched] = useState(false);
+    const [isFetched, setIsFetched] = useState(true);
     const [pagenumber, setPagenumber] = useState(1);
     const ROOT_URL = "https://auto1-mock-server.herokuapp.com/api/cars";
 
@@ -23,12 +23,16 @@ export default function Home(){
       );
 
     useEffect(()=>{
-        const url = `${ROOT_URL}?${selectedFilter}page=${pagenumber}`
+        const url = `${ROOT_URL}?${selectedFilter}page=${pagenumber}`;
+        setIsFetched(true);
         fetch(url).then((res)=>{
             console.log(url, "here")
             return res.json();
         })
-        .then((data)=>setProductList(data.cars))
+        .then((data)=>{
+            setProductList(data.cars);
+            setIsFetched(false);
+        })
         .catch((err)=>console.error(err))
     },[selectedFilter, pagenumber]);
 
@@ -36,8 +40,8 @@ export default function Home(){
         <div className="content">
             <ListPageContext.Provider value={pageContextProvider}>
                 <DropdownFilter />
-                {productList.length===0?( <Loader/>):
-                    (<List cars={productList}/>)}
+                {isFetched ? ( <Loader cars={productList} />):
+                    (<List cars={productList} />)}
                 {/* <Pagination /> */}
             </ListPageContext.Provider>
         </div>

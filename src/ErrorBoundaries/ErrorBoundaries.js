@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import './ErrorBoundaries.css';
+import logo from '../logo.png';
 
 class ErrorBoundary extends React.Component{
     constructor(props) {
@@ -18,7 +21,18 @@ class ErrorBoundary extends React.Component{
     render() {
         if (this.state.hasError) {
           // You can render any custom fallback UI
-          return <h1>Something went wrong.</h1>;
+          return(
+              <div className="error-main">
+                  <img alt="logo" className="logo" src={logo}/>
+                  <h1>404 - Not Found</h1>
+                  <p>
+                      Sorry, the page you are looking for doesn't exist. <br/>
+                      You can always go back to <Link to = '/'>
+                            <span>homepage</span>
+                        </Link>.
+                  </p>
+              </div>
+          );
         }
     
         return this.props.children; 
