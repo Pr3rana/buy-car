@@ -1,28 +1,30 @@
 .main {
-  /* width: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center; */
+  /* flex-direction: row;*/
+  justify-content: center; 
 }
-.content:after {
+/* .content:after {
   content: "";
   display: table;
   clear: both;
   margin: 20px;
-}
+} */
 .filter-wrapper {
   width: 20%;
   /* display: flex; */
   /* flex-direction: column; */
-  padding: 10px;
-  height: 300px;
+  padding: 24px;
+  height: 250px;
   border: 1px solid #ededed;
-  margin: 20px;
+  margin-right: 12px;
 }
 .list-wrapper {
-  width: 60%;
+  width: 80%;
+  margin: 0 0 48px 12px;
+  /* margin-left: 12px; */
   /* display: flex; */
   /* flex-direction: column; */
-  padding: 10px;
-  margin: 20px;
+  /* padding: 10px; */
+  /* margin: 20px; */
 }

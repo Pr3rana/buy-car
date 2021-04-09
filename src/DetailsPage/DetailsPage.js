@@ -24,11 +24,11 @@ const Details = () => {
             {error && <div>{error}</div>}
             {isPending? <div>Loading....</div>:
                 (
-                    <article>
+                    <article className="content-wrapper">
                         <div className="banner-img">
                             <img alt="banner" src={carDetails.car.pictureUrl}/>
                         </div>
-                        <div className="content-wrapper">
+                        <div className="detail-wrapper">
                             <summary className="details">
                                 <h1>{carDetails.car.modelName}</h1>
                                 <p className="product-key-details">

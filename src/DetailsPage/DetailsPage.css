@@ -1,22 +1,24 @@
+.details-container{
+    width: 100%;
+}
 .banner-img{
     height: 50vh;
     background-color: #4a4a4a;
+    margin-bottom: 24px;
 }
 .banner-img img{
     width: 100%;
     height: 100%;
 }
 .content-wrapper{
-    display: flex;
     height: 800px;
-    justify-content: center;
-    margin: 24px;
-}
-
-.content-wrapper{
     font-family: Roboto;
     font-size: larger;
     color: #4a4a4a;
+}
+.detail-wrapper{
+    display: flex;
+    justify-content: center;
 }
 .details{
     position: relative;

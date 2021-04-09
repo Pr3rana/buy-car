@@ -62,7 +62,8 @@ export default function Filter() {
             setAvailableFilters({Color:colors.colors, Manufacturer: listOfManufacturers})
         }
         fetchFilterData()
-    },[])
+    },[]);
+    
     return ( 
         <div className="filter-wrapper">
             <Dropdown filters={availableFilters} select={handleSelect}/>

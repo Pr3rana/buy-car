@@ -4,6 +4,13 @@
     margin: 12px;
 }
 
+.list-header h3{
+    margin: 0 12px 24px;
+}
+.list-header p{
+    margin: 0 12px 24px;
+}
+
 .listContent{
     display: inline-block;
 }

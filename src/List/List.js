@@ -1,16 +1,24 @@
-import { useContext } from 'react';
+import './List.css';
+import { useContext, useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import Pagination from '../Pagination/Pageination';
 import { ListPageContext } from "../helpers/storeContext";
-import './List.css';
 
 function List({cars}){
-    const { pagenumber } = useContext(ListPageContext);
+    const [availableCarCount, setAvailableCarCount] = useState(null);
+    const [carCountLimit, setCarCountLimit] = useState(null);
+    const { pagenumber, totalCarsCount } = useContext(ListPageContext);
+    
+    useEffect(()=>{
+        setCarCountLimit(totalCarsCount > 100 ? 100 : totalCarsCount);
+        setAvailableCarCount(carCountLimit <= 10 ? carCountLimit : (pagenumber*10) < carCountLimit ? (pagenumber*10) : carCountLimit);
+    },[carCountLimit])
+
     return ( 
         <div className="listContainer list-wrapper">
-            <div>
+            <div className="list-header">
                 <h3>Available Cars</h3>
-                <p>Showing {pagenumber*10} out of 100 results</p>
+                <p>Showing {availableCarCount} out of {carCountLimit} results</p>
             </div>
             {cars.map((car,index)=>(
                 <div className="list" key={index}>
