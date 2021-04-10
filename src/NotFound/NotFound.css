@@ -1,0 +1,24 @@
+
+.error-main{
+    position: relative;
+    top: 15vh;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.error-main a{
+    color: #ea7f28;
+    text-decoration: none;
+    display: inline-block;
+}
+.error-main a:hover, .error-main a:active{
+    color: #d37324;
+    border-bottom: 1px solid #d37324;
+}
+
+.error-type{
+    font-weight: 800;
+    font-size: 32px;
+    color: #4a4a4a;
+}
