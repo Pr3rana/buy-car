@@ -1,5 +1,7 @@
 .pagination-container{
+    font-size: 14px;
     text-align: center;
+    margin-bottom: 24px;
 }
 .pagination-container span{
     padding: 12px;
