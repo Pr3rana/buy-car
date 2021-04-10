@@ -1,9 +1,7 @@
 import './Button.css';
-const Button = ({value, click}) => {
+const Button = ({value, click, customClass=""}) => {
     return ( 
-        <div>
-             <button className="filter-btn" onClick={click}>{value}</button>
-        </div>
+     <button className={`default-btn ${customClass}`} onClick={click}>{value}</button>
      );
 }
  

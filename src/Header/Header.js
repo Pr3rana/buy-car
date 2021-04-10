@@ -7,9 +7,9 @@ const Header = () => {
             <img alt="logo" className="logo" src={logo}/>
             <div className="fill-remaining-space"></div>
             <ul>
-                <li><a href="#about">Purchase</a></li>
-                <li><a href="#contact">My Orders</a></li>
-                <li><a href="#news">Sells</a></li>
+                <li><a href="javascript:void(0)">Purchase</a></li>
+                <li><a href="javascript:void(0)">My Orders</a></li>
+                <li><a href="javascript:void(0)">Sells</a></li>
             </ul>
         </header>
      );
