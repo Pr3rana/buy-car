@@ -12,7 +12,7 @@ function List({cars}){
     useEffect(()=>{
         setCarCountLimit(totalCarsCount > 100 ? 100 : totalCarsCount);
         setAvailableCarCount(carCountLimit <= 10 ? carCountLimit : (pagenumber*10) < carCountLimit ? (pagenumber*10) : carCountLimit);
-    },[carCountLimit])
+    },[carCountLimit,pagenumber,totalCarsCount])
 
     return ( 
         <div className="listContainer list-wrapper">
@@ -26,9 +26,9 @@ function List({cars}){
                     <div className="listContent">
                         <h3>{car.modelName}</h3>
                         <p className="product-key-details">
-                            <span>{car.stockNumber}-</span>
-                            <span>{car.mileage.number + car.mileage.unit}-</span>
-                            <span>{car.fuelType}-</span>
+                            <span>{car.stockNumber} - </span>
+                            <span>{car.mileage.number +" " + car.mileage.unit} - </span>
+                            <span>{car.fuelType} - </span>
                             <span>{car.color}</span>
                         </p>
                         <Link to = {`/details/${car.stockNumber}`}>

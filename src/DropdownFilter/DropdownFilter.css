@@ -46,5 +46,6 @@
   
   /*when hovering an item:*/
   .suggestionRow:hover {
-    background-color: #ea7f28; 
+    background-color: #ea7f28;
+    color: #ededed;
   }

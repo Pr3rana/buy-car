@@ -7,28 +7,23 @@ import './Loader.css';
 const Loader = ({ cars }) => {
     const { pagenumber } = useContext(ListPageContext);
     return ( 
-        <div>
-            <div className="listContainer list-wrapper">
-                <div>
-                    <h3>Available Cars</h3>
-                    <p>Showing {pagenumber*10} out of 100 results</p>
-                </div>
-                {cars.map((car,index)=>(
-                    <div className="list" key={index}>
-                        <img alt="alt-text" className="product-icon" />
-                        <div className="listContent">
-                            <h3></h3>
-                            <p className="product-key-details">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </p>
-                            <p className="deatils-link">View details</p>
-                        </div>
+        <div className="loader-list-container list-wrapper">
+            <div className="list-header">
+                <h3>Available Cars</h3>
+                <p></p>
+            </div>
+            {cars.map((car,index)=>(
+                <div className="loader-list" key={index}>
+                    <div className="product-icon"></div>
+                    <div className="list-content">
+                        <p></p>
+                        <p></p>
+                        <p></p>
                     </div>
-                ))}
-                <Pagination />
+                </div>
+            ))}
+            <div className="loader-pagination-container">
+                <span></span>
             </div>
         </div>
     );

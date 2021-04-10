@@ -2,14 +2,14 @@ import './DetailsPage.css';
 import useFetch from '../helpers/useFetch';
 import { useParams } from "react-router-dom";
 import Button from '../Button/Button';
-import { useEffect, useState } from 'react';
+// import { useState } from 'react';
 
 const Details = () => {
     const {stockNumber} = useParams();
     // const [savedCars, setSavedCars] = [];
     const ROOT_URL = "https://auto1-mock-server.herokuapp.com/api/cars/";
     const {data: carDetails, error, isPending} = useFetch(ROOT_URL+stockNumber);
-    const [btnValue, setBtnValue] = useState("Save")
+    // const [btnValue, setBtnValue] = useState("Save")
     
     const handleSave = (e)=>{
         e.target.innerText = "Saved"

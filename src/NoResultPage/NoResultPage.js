@@ -10,7 +10,7 @@ const NoResultPage = () => {
             Aww Snap.. No result Found!!
             Either modify the filter or redirect to <Link to = '/'>
                             <span onClick={()=>setPagenumber(1), setSelectedFilter('')}>homepage</span>
-                        </Link>..
+                        </Link>.
         </div>
      );
 }

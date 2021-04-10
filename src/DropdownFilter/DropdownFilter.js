@@ -1,28 +1,9 @@
 import './DropdownFilter.css';
-import React, { useState, useContext, useEffect} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { ListPageContext } from "../helpers/storeContext";
 import AutoSuggestPanel from './AutoSuggestPanel'
 import Button from '../Button/Button';
 
-function Dropdown({filters, select}){
-    const availableFilterTypes = Object.keys(filters);
-    const [defaultSelect, setDefaultSelect] = useState("");
-    const typeRefs = {};
-    availableFilterTypes.forEach((type,index)=>{
-      typeRefs[type] = React.createRef(null)
-    });
-    return (
-        <>
-        {availableFilterTypes.map((type,index)=>(
-            <div  className="custom-select" key={index}>
-                <p>{type}</p>
-                <div className="default-selected-item" onClick={()=>typeRefs[type].current.style.display!==""?typeRefs[type].current.style.display="":typeRefs[type].current.style.display="block"}>All {type}</div>
-                <AutoSuggestPanel ref={typeRefs[type]} list={filters[type]} onClick={select} type={type}/>
-            </div>)
-        )}
-        </>
-    )
-}
 export default function Filter() {
     // const [filtersType] = useState(["Color", "Manufacturers"]);
     const [availableFilters, setAvailableFilters] = useState({});
@@ -32,15 +13,28 @@ export default function Filter() {
     const ROOT_URL = "https://auto1-mock-server.herokuapp.com/api";
     // const {data: colors} = useFetch(ROOT_URL+"/colors");
     // const {data: manufacturer} = useFetch(ROOT_URL+"/manufacturer");
+    const typeRefs = {};
+    Object.keys(availableFilters).forEach((type,index)=>{
+        typeRefs[type] = React.createRef(null);
+        typeRefs[type+"Default"] = React.createRef(null);
+    })
 
     const handleSelect = (e)=>{
         // console.log(e.target)
-        const type = e.target.getAttribute("data-filter-type").toLowerCase();
+        const type = e.target.getAttribute("data-filter-type");
         const value = e.target.innerText.toLowerCase();
-        setFilterParams({...filterParams, [type]:value})
+        setFilterParams({...filterParams, [type.toLowerCase()]:value});
+        console.log(e.target.previousSibling, "prev")
+        typeRefs[type+"Default"].current.innerText = value;
+        typeRefs[type].current.style.display!==""?typeRefs[type].current.style.display="":typeRefs[type].current.style.display="block";
     }
 
-    const handleFilter = ()=>{
+    const handleFilterClick = (e)=>{
+        const type = e.target.getAttribute("data-type");
+        typeRefs[type].current.style.display!==""?typeRefs[type].current.style.display="":typeRefs[type].current.style.display="block";
+    }
+
+    const applyFilter = ()=>{
         console.log(filterParams, "filters")
         let params = ''
         for(let key in filterParams){
@@ -59,15 +53,21 @@ export default function Filter() {
             // setAvailableColorFilters(colors.colors);
             const listOfManufacturers = manufacturers.manufacturers.map(key=>key.name)
             // setAvailableManufacturersFilters(listOfManufacturers);
-            setAvailableFilters({Color:colors.colors, Manufacturer: listOfManufacturers})
+            setAvailableFilters({Color:colors.colors, Manufacturer: listOfManufacturers});
         }
         fetchFilterData()
     },[]);
     
     return ( 
         <div className="filter-wrapper">
-            <Dropdown filters={availableFilters} select={handleSelect}/>
-            <Button value="Filter" click={handleFilter}/>
+            {Object.keys(availableFilters).map((type,index)=>(
+                <div className="custom-select" key={type}>
+                    <p>{type}</p>
+                    <div ref={typeRefs[type+"Default"]} className="default-selected-item" onClick={handleFilterClick} data-type={type}>All {type}</div>
+                    <AutoSuggestPanel ref={typeRefs[type]} key={index} filterData={availableFilters[type]} type={type} select={handleSelect}/>
+                </div>
+            ))}
+            <Button value="Filter" click={applyFilter}/>
         </div>
      );
 }
