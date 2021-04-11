@@ -2,12 +2,12 @@ import { useState, useMemo } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ListPageContext } from "./helpers/storeContext";
 import './App.css';
-import Header from './Header/Header'
-import Footer from './Footer/Footer';
-import NotFound from './NotFound/NotFound';
-import DetailsPage from './DetailsPage/DetailsPage';
-import Home from './Home/Home';
-import ErrorBoundaries from './ErrorBoundaries/ErrorBoundaries';
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer';
+import NotFound from './components/NotFound/NotFound';
+import DetailsPage from './components/DetailsPage/DetailsPage';
+import Home from './components/Home/Home';
+import ErrorBoundaries from './components/ErrorBoundaries/ErrorBoundaries';
 
 function App() {
 

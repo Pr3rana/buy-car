@@ -1,6 +1,6 @@
 import './DropdownFilter.css';
 import React, { useState, useContext, useEffect } from 'react';
-import { ListPageContext } from "../helpers/storeContext";
+import { ListPageContext } from "../../helpers/storeContext";
 import AutoSuggestPanel from './AutoSuggestPanel'
 import Button from '../Button/Button';
 

@@ -1,10 +1,10 @@
 import './DetailsPage.css';
 import { useState, useContext, useEffect } from 'react';
 import NotFound from '../NotFound/NotFound';
-import useFetch from '../helpers/useFetch';
+import useFetch from '../../helpers/useFetch';
 import { useParams } from "react-router-dom";
 import Button from '../Button/Button';
-import { ListPageContext } from "../helpers/storeContext";
+import { ListPageContext } from "../../helpers/storeContext";
 
 const Details = () => {
     const {stockNumber} = useParams();

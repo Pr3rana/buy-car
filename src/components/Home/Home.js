@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { ListPageContext } from "../helpers/storeContext";
+import { ListPageContext } from "../../helpers/storeContext";
 import Loader from "../Loader/Loader";
 import DropdownFilter from '../DropdownFilter/DropdownFilter';
 import List from '../List/List';
