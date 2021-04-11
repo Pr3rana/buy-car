@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pageination render Initial rendering: 
+        <div data-testid="pagination-container" class="pagination-container"><span data-testid="first-page">First</span>
+        <span data-testid="prev-page">Previous</span><span data-testid="curr-total-page">Page 1 of 2</span>
+        <span data-testid="next-page">Next</span><span data-testid="last-page">Last</span></div>
+         1`] = `
+<div
+  class="pagination-container"
+  data-testid="pagination-container"
+>
+  <span
+    data-testid="first-page"
+  >
+    First
+  </span>
+  <span
+    data-testid="prev-page"
+  >
+    Previous
+  </span>
+  <span
+    data-testid="curr-total-page"
+  >
+    Page 
+    1
+     of 
+    2
+  </span>
+  <span
+    data-testid="next-page"
+  >
+    Next
+  </span>
+  <span
+    data-testid="last-page"
+  >
+    Last
+  </span>
+</div>
+`;
