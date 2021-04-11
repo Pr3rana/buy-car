@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button props Re-render the Button with different props: 
+          <button data-testid="default-btn" class="default-btn ">Save</button>
+         1`] = `
+<button
+  class="default-btn "
+  data-testid="default-btn"
+>
+  Save
+</button>
+`;
+
+exports[`Button render Initial Render: 
+          <button data-testid="default-btn" class="default-btn "></button>
+         1`] = `
+<button
+  class="default-btn "
+  data-testid="default-btn"
+/>
+`;

@@ -1,7 +1,7 @@
 import './Button.css';
-const Button = ({value, click, customClass=""}) => {
+const Button = ({value ="", click = ()=>{}, customClass=""}) => {
     return ( 
-     <button className={`default-btn ${customClass}`} onClick={click}>{value}</button>
+     <button data-testid = "default-btn" className={`default-btn ${customClass}`} onClick={click}>{value}</button>
      );
 }
  
