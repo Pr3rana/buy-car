@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader props testing loader with props: <div data-testid="loader-list-container" className="loader-list-container list-wrapper">
+                <div className="list-header">
+                    <h3>Available Cars</h3>
+                    <p className="medium"></p>
+                </div>
+                <div className="loader-list-item" key={index}>
+                    <div className="product-icon"></div>
+                    <div className="list-item-content">
+                        <p className="medium"></p>
+                        <p className="medium"></p>
+                        <p className="small"></p>
+                    </div>
+                </div>
+                <div className="loader-pagination-container">
+                    <span className="medium"></span>
+                </div>
+            </div> 1`] = `
+<div
+  class="loader-list-container list-wrapper"
+  data-testid="loader-list-container"
+>
+  <div
+    class="list-header"
+  >
+    <h3>
+      Available Cars
+    </h3>
+    <p
+      class="medium"
+    />
+  </div>
+  <div
+    class="loader-list-item"
+  >
+    <div
+      class="product-icon"
+    />
+    <div
+      class="list-item-content"
+    >
+      <p
+        class="medium"
+      />
+      <p
+        class="medium"
+      />
+      <p
+        class="small"
+      />
+    </div>
+  </div>
+  <div
+    class="loader-pagination-container"
+  >
+    <span
+      class="medium"
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader render Initial render: 
+            <div data-testid="loader-list-container" className="loader-list-container list-wrapper">
+                <div className="list-header">
+                    <h3>Available Cars</h3>
+                    <p className="medium"></p>
+                </div>
+                <div className="loader-pagination-container">
+                    <span className="medium"></span>
+                </div>
+            </div>
+             1`] = `
+<div
+  class="loader-list-container list-wrapper"
+  data-testid="loader-list-container"
+>
+  <div
+    class="list-header"
+  >
+    <h3>
+      Available Cars
+    </h3>
+    <p
+      class="medium"
+    />
+  </div>
+  <div
+    class="loader-pagination-container"
+  >
+    <span
+      class="medium"
+    />
+  </div>
+</div>
+`;

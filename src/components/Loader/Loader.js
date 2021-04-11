@@ -1,7 +1,7 @@
 import './Loader.css';
-const Loader = ({ cars }) => {
+const Loader = ({ cars=[] }) => {
     return ( 
-        <div className="loader-list-container list-wrapper">
+        <div data-testid="loader-list-container" className="loader-list-container list-wrapper">
             <div className="list-header">
                 <h3>Available Cars</h3>
                 <p className="medium"></p>
