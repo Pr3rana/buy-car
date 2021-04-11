@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import Pagination from '../Pagination/Pageination';
 import { ListPageContext } from "../../helpers/storeContext";
 
-function List({cars}){
+function List({cars=[]}){
     const [availableCarCount, setAvailableCarCount] = useState(null);
     const [carCountLimit, setCarCountLimit] = useState(null);
     const { pagenumber, totalCarsCount } = useContext(ListPageContext);
@@ -15,7 +15,7 @@ function List({cars}){
     },[carCountLimit,pagenumber,totalCarsCount])
 
     return ( 
-        <div className="list-container list-wrapper">
+        cars.length>0 && <div data-testid="list-wrapper" className="list-container list-wrapper">
             <div className="list-header">
                 <h3>Available Cars</h3>
                 <p>Showing {availableCarCount} out of {carCountLimit} results</p>
@@ -31,13 +31,13 @@ function List({cars}){
                             <span>{car.fuelType} - </span>
                             <span>{car.color}</span>
                         </p>
-                        <Link className="deatils-link" to = {`/details/${car.stockNumber}`}>
+                        <Link data-testid="deatils-link" className="deatils-link" to = {`/details/${car.stockNumber}`}>
                             <span>View details</span>
                         </Link>
                     </div>
                 </div>
             ))}
-             <Pagination/>
+            <Pagination/>
         </div>
      );
 }
