@@ -1,13 +1,11 @@
 import './DropdownFilter.css';
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ListPageContext } from "../../helpers/storeContext";
 import AutoSuggestPanel from './AutoSuggestPanel'
 import Button from '../Button/Button';
 
 export default function Filter() {
-    const [availableFilters, setAvailableFilters] = useState({});
-    const [filterParams, setFilterParams] = useState({});
-    const {setPagenumber, setSelectedFilter} = useContext(ListPageContext);
+    const {setPagenumber, setSelectedFilter, availableFilters, setAvailableFilters, filterParams, setFilterParams} = useContext(ListPageContext);
     const ROOT_URL = "https://auto1-mock-server.herokuapp.com/api";
     const typeRefs = {};
     Object.keys(availableFilters).forEach((type,index)=>{
@@ -41,7 +39,6 @@ export default function Filter() {
             typeRefs[type].current.style.display="block";
             typeRefs[type+"Default"].current.className+=' select-arrow-active';
         }
-        // select-arrow-active
     }
 
     const applyFilter = (e)=>{
@@ -70,11 +67,12 @@ export default function Filter() {
     },[]);
     
     return ( 
-        <div className="filter-wrapper">
-            {Object.keys(availableFilters).map((type,index)=>(
+        <div data-testid="filter-wrapper" className="filter-wrapper">
+            {Object.keys(availableFilters).length===0?(<div className="filter-loader"><img alt="Loader" src="https://i.gifer.com/ZZ5H.gif" /></div>):
+            Object.keys(availableFilters).map((type,index)=>(
                 <div className="custom-select" key={type}>
                     <p className="filter-type">{type}</p>
-                    <div ref={typeRefs[type+"Default"]} className="default-selected-item" onClick={handleFilterClick} data-type={type}>All {type}</div>
+                    <div data-testid="default-filter" ref={typeRefs[type+"Default"]} className="default-selected-item" onClick={handleFilterClick} data-type={type}>All {type}</div>
                     <AutoSuggestPanel ref={typeRefs[type]} key={index} filterData={availableFilters[type]} type={type} select={handleSelect}/>
                 </div>
             ))}

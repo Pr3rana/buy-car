@@ -3,11 +3,11 @@ import './DropdownFilter.css';
 
 function AutoSuggestPanel ({filterData=[], select, type}, ref) {
     return(
-      <div ref={ref} className="autosuggestPanel">
+      <div data-testid='autosuggest-panel-wrapper' ref={ref} className="autosuggestPanel">
         {
           filterData.map((el, index) => {
           return (
-              <div className="suggestionRow" key = {el+index} onClick={(e)=>select(e)}  data-filter-type={type}>{el}</div>
+              <div data-testid ="suggestion-row" className="suggestionRow" key = {el+index} onClick={(e)=>select(e)}  data-filter-type={type}>{el}</div>
           )
         })
         }
