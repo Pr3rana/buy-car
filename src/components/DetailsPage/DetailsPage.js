@@ -1,10 +1,11 @@
 import './DetailsPage.css';
 import { useState, useContext, useEffect } from 'react';
+import { useParams, Link } from "react-router-dom";
 import NotFound from '../NotFound/NotFound';
 import useFetch from '../../helpers/useFetch';
-import { useParams } from "react-router-dom";
 import Button from '../Button/Button';
 import { ListPageContext } from "../../helpers/storeContext";
+import logo from '../../logo.png';
 
 const Details = () => {
     const {stockNumber} = useParams();
@@ -12,7 +13,8 @@ const Details = () => {
     const {data: carDetails, error, isPending } = useFetch(ROOT_URL+stockNumber);
     const { savedCars, setSavedCars } = useContext(ListPageContext);
     const [btnValue, setBtnValue] = useState("Save")
-    
+    const errorDetails = <p>Sorry, the page you are looking for doesn't exist. <br/>You can always go back to <Link to = '/'> homepage</Link>.</p>
+
     const handleSave = (e)=>{
         if(savedCars.includes(stockNumber) && btnValue==="Saved"){
             setSavedCars(prev=>prev.filter(carStockNumber=>carStockNumber!==stockNumber));
@@ -22,14 +24,15 @@ const Details = () => {
             setSavedCars(prev=>[...prev, stockNumber]);
             setBtnValue("Saved");
         }
+        window.localStorage.setItem("savedCars", JSON.stringify(savedCars))
     }
     useEffect(()=>{
         savedCars.includes(stockNumber)?setBtnValue("Saved"):setBtnValue("Save");
     },[savedCars, stockNumber])
 
     return ( 
-        <div className="details-container">
-            {error? (<NotFound/>):
+        <div data-testid="details-page" className="details-container">
+            {error? (<NotFound  errorType="404 - Not Found" errorDetails={errorDetails} brandLogo={logo} />):
             isPending ? (<div className="details-loader"><img alt="Loader" src="https://i.gifer.com/ZZ5H.gif" /></div>) :
                 (
                     <article className="content-wrapper">
