@@ -1,16 +1,18 @@
 import './Header.css';
 import logo from '../../logo.png';
 
-const Header = () => {
+const Header = ({headerNavList=[], brandLogo=logo}) => {
     return ( 
-        <header>
-            <img alt="logo" className="logo" src={logo}/>
+        <header data-testid="header">
+            <img data-testid ="brand-logo" alt="brand-logo" className="logo" src={brandLogo}/>
             <div className="fill-remaining-space"></div>
-            <ul>
-                <li><a href="/" onClick={(e)=>e.preventDefault()}>Purchase</a></li>
-                <li><a href="/" onClick={(e)=>e.preventDefault()}>My Orders</a></li>
-                <li><a href="/" onClick={(e)=>e.preventDefault()}>Sells</a></li>
-            </ul>
+            {headerNavList.length>0 && <ul data-testid ="header-list-container">
+               {
+                   headerNavList.map((nav,index)=>(
+                    <li data-testid ="header-list-item" key={index}><a href="/" onClick={(e)=>e.preventDefault()}>{nav}</a></li>
+                   ))
+               }
+            </ul>}
         </header>
      );
 }
