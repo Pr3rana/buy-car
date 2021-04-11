@@ -1,9 +1,9 @@
 import './Footer.css'
-const Footer = () => {
+const Footer = ({footerBody=""}) => {
     return ( 
         <>
-            <footer className="cp-text">
-                © Auto1 Group 2018
+            <footer data-testid ="footer" className="cp-text">
+               {footerBody}
             </footer>
         </>
      );
