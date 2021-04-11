@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound props Re-render the NotFound with different props: 
+        <div className="error-main">
+            <img alt="logo" className="logo" src={brandLogo}/>
+            <p className="error-type">404 - Not Found</p>
+            <p>Sorry, the page you are looking for doesn't exist. <br/>You can always go back to <a href='/'>homepage</a>.</p>
+        </div>
+         1`] = `
+<div
+  class="error-main"
+  data-testid="not-found"
+>
+  <img
+    alt="logo"
+    class="logo"
+    src="logo.png"
+  />
+  <p
+    class="error-type"
+  >
+    404 - Not Found
+  </p>
+  <p>
+    Sorry, the page you are looking for doesn't exist. 
+    <br />
+    You can always go back to 
+    <a
+      href="/"
+    >
+      homepage
+    </a>
+    .
+  </p>
+</div>
+`;
+
+exports[`NotFound render Initial Render: 
+        <div className="error-main">
+            <img alt="logo" className="logo" src="../../logo.png"/>
+            <p className="error-type">Error</p>
+        </div>
+         1`] = `
+<div
+  class="error-main"
+  data-testid="not-found"
+>
+  <img
+    alt="logo"
+    class="logo"
+    src="logo.png"
+  />
+  <p
+    class="error-type"
+  >
+    Error
+  </p>
+</div>
+`;
