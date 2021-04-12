@@ -1,13 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { ListPageContext } from "./helpers/storeContext";
+import { ListPageContext } from "./helpers/appContext";
 import './App.css';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
 import DetailsPage from './components/DetailsPage/DetailsPage';
 import Home from './components/Home/Home';
-import ErrorBoundaries from './components/ErrorBoundaries/ErrorBoundaries';
 import logo from './logo.png';
 
 function App() {
@@ -55,7 +54,6 @@ function App() {
   return (
         <Router>
             <Header headerNavList={headerNavList} brandLogo={logo}/>
-            <ErrorBoundaries>
             <ListPageContext.Provider value={pageContextProvider}>
               <div className="main">
                   <Switch>
@@ -71,7 +69,6 @@ function App() {
                   </Switch>
               </div>
             </ListPageContext.Provider>
-            </ErrorBoundaries>
             <Footer footerBody=" © Auto1 Group 2018" />
       </Router>
   );

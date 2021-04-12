@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import NotFound from '../NotFound/NotFound';
 import useFetch from '../../helpers/useFetch';
 import Button from '../Button/Button';
-import { ListPageContext } from "../../helpers/storeContext";
+import { ListPageContext } from "../../helpers/appContext";
 import logo from '../../logo.png';
 
 const Details = () => {
@@ -13,7 +13,7 @@ const Details = () => {
     const {data: carDetails, error, isPending } = useFetch(ROOT_URL+stockNumber);
     const { savedCars, setSavedCars } = useContext(ListPageContext);
     const [btnValue, setBtnValue] = useState("Save")
-    const errorDetails = <p>Sorry, the page you are looking for doesn't exist. <br/>You can always go back to <Link to = '/'> homepage</Link>.</p>
+    const errorDetails = <p>Sorry, the page you are looking for doesn't exist. <br/>You can always go back to <Link className="homepage-redirect" to = '/'> homepage</Link>.</p>
 
     const handleSave = (e)=>{
         if(savedCars.includes(stockNumber) && btnValue==="Saved"){

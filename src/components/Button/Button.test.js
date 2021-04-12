@@ -24,13 +24,10 @@ describe("Button props",()=>{
 
 describe("Button event",()=>{
     test("test button click event", ()=>{
-        // console.log = jest.fn();
         const click = jest.fn()
         render(<Button value={"Save"} onClick={click()} />)
         expect(screen.getByRole('button')).toBeInTheDocument()
-        // fireEvent.click(screen.getByTestId('default-btn'))
         expect(click).toHaveBeenCalledTimes(1)
-        // expect(console.log).toHaveBeenCalledWith("test btn")
     })
     
 })

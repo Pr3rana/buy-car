@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { ListPageContext } from "../../helpers/storeContext";
+import { ListPageContext } from "../../helpers/appContext";
 import Loader from "../Loader/Loader";
 import DropdownFilter from '../DropdownFilter/DropdownFilter';
 import List from '../List/List';
@@ -15,7 +15,6 @@ export default function Home(){
         const url = `${ROOT_URL}?${selectedFilter}page=${pagenumber}`;
         setIsFetched(true);
         fetch(url).then((res)=>{
-            console.log(url, "here")
             return res.json();
         })
         .then((data)=>{
@@ -28,7 +27,7 @@ export default function Home(){
     },[selectedFilter, pagenumber, setTotalCarsCount, setTotalPageCount]);
 
     return(
-        <div className="content">
+        <div data-testid="content-wrapper" className="content">
             <DropdownFilter />
             {isFetched ? ( <Loader cars={productList} />):
                 (<List cars={productList} />)}

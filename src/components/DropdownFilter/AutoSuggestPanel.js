@@ -7,7 +7,7 @@ function AutoSuggestPanel ({filterData=[], select, type}, ref) {
         {
           filterData.map((el, index) => {
           return (
-              <div data-testid ="suggestion-row" className="suggestionRow" key = {el+index} onClick={(e)=>select(e)}  data-filter-type={type}>{el}</div>
+              <div data-testid ="suggestion-row" className="suggestionRow" key = {el+index} onClick={(e)=>select(e)}  data-filter-type={type}>{el.toLowerCase()}</div>
           )
         })
         }

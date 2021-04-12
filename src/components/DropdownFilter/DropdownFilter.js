@@ -1,6 +1,6 @@
 import './DropdownFilter.css';
 import React, { useContext, useEffect } from 'react';
-import { ListPageContext } from "../../helpers/storeContext";
+import { ListPageContext } from "../../helpers/appContext";
 import AutoSuggestPanel from './AutoSuggestPanel'
 import Button from '../Button/Button';
 
@@ -17,7 +17,6 @@ export default function Filter() {
         const type = e.target.getAttribute("data-filter-type");
         const value = e.target.innerText.toLowerCase();
         setFilterParams({...filterParams, [type.toLowerCase()]:value});
-        console.log(e.target.previousSibling, "prev")
         typeRefs[type+"Default"].current.innerText = value;
         if(typeRefs[type].current.style.display!==""){
             typeRefs[type].current.style.display="";
@@ -64,7 +63,7 @@ export default function Filter() {
             setAvailableFilters({Color:colors.colors, Manufacturer: listOfManufacturers});
         }
         fetchFilterData()
-    },[]);
+    });
     
     return ( 
         <div data-testid="filter-wrapper" className="filter-wrapper">

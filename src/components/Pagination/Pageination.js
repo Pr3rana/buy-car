@@ -1,6 +1,6 @@
 import './Pageination.css';
 import { useContext, useEffect, useState } from 'react';
-import { ListPageContext } from "../../helpers/storeContext";
+import { ListPageContext } from "../../helpers/appContext";
 
 const Pagination = () => {
     const [pageCountLimit, setPageCountLimit] = useState(null);

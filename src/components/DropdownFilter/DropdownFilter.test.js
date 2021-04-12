@@ -1,4 +1,4 @@
-import { render, screen, cleanup, fireEvent, waitFor } from '../../test-utils.js';
+import { render, screen, cleanup } from '../../test-utils.js';
 import DropdownFilter from './DropdownFilter';
 
 afterEach(cleanup)
@@ -11,7 +11,6 @@ describe("Filter component render", () => {
       <div data-testid="autosuggest-panel-wrapper" class="autosuggestPanel"><div data-testid="suggestion-row" class="suggestionRow" data-filter-type="test">test value</div></div>
       </div><button data-testid="default-btn" class="default-btn filter-btn">Filter</button>`
     )
-   
   });
 })
 
@@ -22,5 +21,9 @@ describe("Filter props",()=>{
     expect(screen.getByTestId('default-filter')).toBeInTheDocument()
     expect(screen.getByTestId('default-filter')).toHaveTextContent("All test")
     expect(screen.queryByTestId('autosuggest-panel-wrapper')).toBeVisible()
+    expect(screen.getByTestId('autosuggest-panel-wrapper')).toMatchSnapshot(
+      `<div data-testid="autosuggest-panel-wrapper" class="autosuggestPanel">
+      <div data-testid="suggestion-row" class="suggestionRow" data-filter-type="test">test value</div></div>`
+    )
   })
 })
