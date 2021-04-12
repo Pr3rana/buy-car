@@ -15,7 +15,8 @@ function App() {
   const [pagenumber, setPagenumber] = useState(1);
   const [totalCarsCount, setTotalCarsCount] = useState(null);
   const [totalPageCount, setTotalPageCount] = useState(null);
-  const [savedCars, setSavedCars] = useState([]);
+  const savedCarInstorage = JSON.parse(localStorage.getItem('items'));
+  const [savedCars, setSavedCars] = useState([] || savedCarInstorage);
   const [availableFilters, setAvailableFilters] = useState({});
   const [filterParams, setFilterParams] = useState({});
   const [headerNavList] = useState([ "Purchase", "My Orders", "Sells" ])
@@ -39,6 +40,17 @@ function App() {
     [pagenumber, setPagenumber, selectedFilter, setSelectedFilter, totalPageCount, totalCarsCount, savedCars, setSavedCars, availableFilters, filterParams,]
   );
   const errorDetails = <p>Sorry, the page you are looking for doesn't exist. <br/>You can always go back to <Link className="homepage-redirect" to = '/'> homepage</Link>.</p>
+
+  useEffect(() => {
+    const savedCars = JSON.parse(localStorage.getItem('savedCars'));
+    if (savedCars) {
+      setSavedCars(savedCars);
+    }
+  }, []);
+
+  useEffect(()=>{
+    window.localStorage.setItem("savedCars", JSON.stringify(savedCars))
+  },[savedCars])
   
   return (
         <Router>
