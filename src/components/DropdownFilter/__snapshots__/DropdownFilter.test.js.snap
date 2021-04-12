@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter component render initial renders: <div class="custom-select"><p class="filter-type">test</p><div data-testid="default-filter" class="default-selected-item" data-type="test">All test</div>
+      <div data-testid="autosuggest-panel-wrapper" class="autosuggestPanel"><div data-testid="suggestion-row" class="suggestionRow" data-filter-type="test">test value</div></div>
+      </div><button data-testid="default-btn" class="default-btn filter-btn">Filter</button> 1`] = `
+<div
+  class="filter-wrapper"
+  data-testid="filter-wrapper"
+>
+  <div
+    class="custom-select"
+  >
+    <p
+      class="filter-type"
+    >
+      test
+    </p>
+    <div
+      class="default-selected-item"
+      data-testid="default-filter"
+      data-type="test"
+    >
+      All 
+      test
+    </div>
+    <div
+      class="autosuggestPanel"
+      data-testid="autosuggest-panel-wrapper"
+    >
+      <div
+        class="suggestionRow"
+        data-filter-type="test"
+        data-testid="suggestion-row"
+      >
+        test value
+      </div>
+    </div>
+  </div>
+  <button
+    class="default-btn filter-btn"
+    data-testid="default-btn"
+  >
+    Filter
+  </button>
+</div>
+`;
+
+exports[`Filter props Test filter with mock data: <div data-testid="autosuggest-panel-wrapper" class="autosuggestPanel">
+      <div data-testid="suggestion-row" class="suggestionRow" data-filter-type="test">test value</div></div> 1`] = `
+<div
+  class="autosuggestPanel"
+  data-testid="autosuggest-panel-wrapper"
+>
+  <div
+    class="suggestionRow"
+    data-filter-type="test"
+    data-testid="suggestion-row"
+  >
+    test value
+  </div>
+</div>
+`;

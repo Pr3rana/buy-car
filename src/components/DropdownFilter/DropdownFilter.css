@@ -1,0 +1,62 @@
+.custom-select {
+  font-size: 18px;
+  position: relative;
+  font-family: Arial;
+}
+.default-selected-item{
+  border: 1px solid #ededed;
+  padding: 12px;
+}
+.default-selected-item.select-arrow-active:after {
+  border-color: transparent transparent #ededed transparent;
+  top: 41px;
+}
+
+.filter-type{
+  font-size: 14px;
+}
+
+.default-selected-item:after {
+  position: absolute;
+  content: "";
+  top: 52px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border: 8px solid #ededed;
+  border-color: #ededed transparent transparent transparent;
+}
+
+.autosuggestPanel{
+  margin-top: 12px;
+  border: 1px solid #ededed;
+  border-bottom: none;
+  overflow-y: auto;
+  max-height: 20vh;
+  display: none;
+}
+
+.filter-loader{
+  text-align: center;
+}
+.filter-loader img{
+  width: 50px;
+  height: 50px;
+}
+  
+.suggestionRow {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+  
+.suggestionRow:hover {
+  background-color: #ea7f28;
+  color: #ededed;
+}
+
+.filter-btn{
+  font-size: 18px;
+  margin: 18px 0 18px 18px;
+}

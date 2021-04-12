@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header props Re-render the Header with different props: 
+            <header data-testid="header">
+                <img data-testid ="brand-logo" alt="brand-logo" className="logo" src={requiredLogo}/>
+                <div className="fill-remaining-space"></div>
+                <ul data-testid ="header-list-container">
+                    <li data-testid ="header-list-item" key=0><a href="/" onClick={(e)=>e.preventDefault()}>test</a></li>
+                    <li data-testid ="header-list-item" key=1><a href="/" onClick={(e)=>e.preventDefault()}>test</a></li>
+                </ul>
+            </header>
+         1`] = `
+<header
+  data-testid="header"
+>
+  <img
+    alt="brand-logo"
+    class="logo"
+    data-testid="brand-logo"
+    src="logo.png"
+  />
+  <div
+    class="fill-remaining-space"
+  />
+  <ul
+    data-testid="header-list-container"
+  >
+    <li
+      data-testid="header-list-item"
+    >
+      <a
+        href="/"
+      >
+        test
+      </a>
+    </li>
+    <li
+      data-testid="header-list-item"
+    >
+      <a
+        href="/"
+      >
+        test
+      </a>
+    </li>
+  </ul>
+</header>
+`;
+
+exports[`Header render Initial Render: 
+            <header data-testid="header">
+            <img data-testid ="brand-logo" alt="brand-logo" className="logo" src={requiredLogo}/>
+            <div className="fill-remaining-space"></div>
+            </header>
+         1`] = `
+<header
+  data-testid="header"
+>
+  <img
+    alt="brand-logo"
+    class="logo"
+    data-testid="brand-logo"
+    src="logo.png"
+  />
+  <div
+    class="fill-remaining-space"
+  />
+</header>
+`;

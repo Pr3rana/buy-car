@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer props Re-render the Footer with different props: 
+        <footer data-testid ="footer" className="cp-text">test footer body</footer>
+         1`] = `
+<footer
+  class="cp-text"
+  data-testid="footer"
+>
+  test footer body
+</footer>
+`;
+
+exports[`Footer render Initial Render: 
+        <footer data-testid ="footer" className="cp-text"></footer>
+         1`] = `
+<footer
+  class="cp-text"
+  data-testid="footer"
+/>
+`;
